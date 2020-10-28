@@ -26,12 +26,11 @@ public class Curso {
         super();
     }
 
-    public long getId() {
-        return id;
+    public long getIdCur() {
+        return idCur;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdCur(long idCur) {
+        this.idCur = idCur;
     }
-
 }

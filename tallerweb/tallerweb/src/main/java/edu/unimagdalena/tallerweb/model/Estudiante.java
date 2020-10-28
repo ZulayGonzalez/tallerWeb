@@ -30,12 +30,12 @@ public class Estudiante {
         super();
     }
 
-    public long getId() {
-        return id;
+    public long getIdEst() {
+        return idEst;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdEst(long idEst) {
+        this.idEst = idEst;
     }
 }
 }
