@@ -1,7 +1,6 @@
 package edu.unimagdalena.tallerweb.model;
 
 import javax.persistence.*;
-
 import java.util.Set;
 
 @Entity
@@ -9,12 +8,13 @@ import java.util.Set;
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idEst;
 
-    @Column
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column String codigo;
+    @Column(name = "codigo", nullable = false, unique = true)
+    private String codigo;
 
     @Column
     private String numero;
@@ -22,8 +22,8 @@ public class Estudiante {
     @ManyToMany
     @JoinTable (
             name = "cursos_estudiantes",
-            joinColumns = @JoinColumn(name = "estudiante_id"),
-            inverseJoinColumns = @JoinColumn(name= "cursos_id"))
+            joinColumns = @JoinColumn(name = "estudiante_id", referencedColumnName = "idEst"),
+            inverseJoinColumns = @JoinColumn(name= "cursos_id", referencedColumnName = "idCur"))
       private Set<Curso> cursos;
 
     public Estudiante() {
@@ -34,5 +34,8 @@ public class Estudiante {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 }
 }
