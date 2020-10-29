@@ -10,7 +10,7 @@ public class Estudiante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nombre")
     private String nombre;
@@ -18,25 +18,25 @@ public class Estudiante {
     @Column(name = "codigo", nullable = false, unique = true)
     private String codigo;
 
-    @Column
-    private String numero;
+    @Column(name = "identificacion",nullable = false, unique = true)
+    private String identificacion;
 
     @ManyToMany
     @JoinTable (
             name = "cursos_estudiantes",
-            joinColumns = @JoinColumn(name = "estudiante_id", referencedColumnName = "idEst"),
-            inverseJoinColumns = @JoinColumn(name= "cursos_id", referencedColumnName = "idCur"))
+            joinColumns = @JoinColumn(name = "estudiante_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name= "cursos_id", referencedColumnName = "id"))
     private Set<Curso> cursos;
 
-    public Estudiante(long id) {
+    public Estudiante(Long id) {
         this.id = id;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

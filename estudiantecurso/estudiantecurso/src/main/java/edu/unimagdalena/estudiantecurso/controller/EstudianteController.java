@@ -18,12 +18,12 @@ public class EstudianteController {
     @Autowired
     private EstudianteService estudianteService;
 
-    @GetMapping
-    public Set<Estudiante> estudiantes() {
+    @GetMapping("/estudiantes")
+    public List<Estudiante> estudiantes() {
         return estudianteService.estudiantes();
     }
 
-    @PostMapping
+    @PostMapping("/crear")
     public ResponseEntity<?> create(@RequestBody Estudiante estudiante){
         Map<String, Object> response = new HashMap<>();
 
@@ -33,7 +33,7 @@ public class EstudianteController {
 
             newEstudiante = estudianteService.create(estudiante);
 
-            response.put("mensaje", "jugador creado");
+            response.put("mensaje", "estudiante creado");
             response.put("jugador", newEstudiante);
 
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
