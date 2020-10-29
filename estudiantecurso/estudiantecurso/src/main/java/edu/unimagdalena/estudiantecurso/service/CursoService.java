@@ -1,6 +1,7 @@
 package edu.unimagdalena.estudiantecurso.service;
 
 import edu.unimagdalena.estudiantecurso.model.Curso;
+import edu.unimagdalena.estudiantecurso.model.Estudiante;
 import edu.unimagdalena.estudiantecurso.repository.CursoRepository;
 import edu.unimagdalena.estudiantecurso.repository.EstudianteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,26 +15,29 @@ public class CursoService implements ICursoService{
 
     @Override
     public Set<Curso> curso() {
-        return null;
+
+        return (Set<Curso> CursoRepository);
     }
 
     @Override
     public Curso create(Curso curso) {
-        return null;
+        return CursoRepository.save(curso);
     }
 
     @Override
     public Curso find(Long id) {
-        return null;
+        return CursoRepository.findById(id).orElse(null);
     }
 
     @Override
     public Curso edit(Curso curso, Long id) {
-        return null;
+        Curso CursoToUpdate = CursoRepository.findById(id).get();
+
+        return CursoToUpdate;
     }
 
     @Override
     public void delete(Long id) {
-
+        CursoRepository.deleteById(id);
     }
 }

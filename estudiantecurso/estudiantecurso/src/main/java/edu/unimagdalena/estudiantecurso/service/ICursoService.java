@@ -1,6 +1,7 @@
 package edu.unimagdalena.estudiantecurso.service;
 
 import edu.unimagdalena.estudiantecurso.model.Curso;
+import edu.unimagdalena.estudiantecurso.model.Estudiante;
 
 import java.util.Set;
 

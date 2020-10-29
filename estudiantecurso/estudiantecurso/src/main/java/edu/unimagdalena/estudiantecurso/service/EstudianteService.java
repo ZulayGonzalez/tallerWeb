@@ -13,26 +13,29 @@ public class EstudianteService implements  IEstudianteService{
 
     @Override
     public Set<Estudiante> estudiantes() {
-        return null;
+
+        return (Set<Estudiante> EstudianteRepository);
     }
 
     @Override
     public Estudiante create(Estudiante estudiante) {
-        return null;
+        return EstudianteRepository.save(estudiante);
     }
 
     @Override
     public Estudiante find(Long id) {
-        return null;
+        return EstudianteRepository.findById(id).orElse(null);
     }
 
     @Override
     public Estudiante edit(Estudiante estudiante, Long id) {
-        return null;
+        Estudiante EstudianteToUpdate = EstudianteRepository.findById(id).get();
+
+        return EstudianteToUpdate;
     }
 
     @Override
     public void delete(Long id) {
-
+        EstudianteRepository.deleteById(id)
     }
 }
